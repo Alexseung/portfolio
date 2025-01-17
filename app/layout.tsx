@@ -1,23 +1,17 @@
-// import React from 'react';
-// import './main.css';
-
-// // /app/layout.tsx
-// export default function Layout({children}: {children: React.ReactNode}) {
-//   return (
-//     <div>
-//       <header>
-//         <h1>My Website</h1>
-//       </header>
-//       <main>{children}</main>
-//     </div>
-//   );
-// }
+'use client';
 
 import React from 'react';
 import './main.css';
+import Menu from './menu';
+import {useRouter} from 'next/navigation';
 
 // /app/layout.tsx
 export default function Layout({children}: {children: React.ReactNode}) {
+  const router = useRouter();
+  const goHome = () => {
+    router.push('/');
+  };
+
   return (
     <html lang='en'>
       {' '}
@@ -25,7 +19,13 @@ export default function Layout({children}: {children: React.ReactNode}) {
       <body>
         <div>
           <header>
-            <h1>윤승근씨 포트폴리오</h1>
+            <div
+              className='text-2xl mb-4 hover:cursor-pointer'
+              onClick={goHome}
+            >
+              윤승근씨 포트폴리오
+            </div>
+            <Menu></Menu>
           </header>
           <main>{children}</main>
         </div>
