@@ -1,4 +1,6 @@
 import One from './one';
+import Two from './tow';
+import Three from './three';
 
 interface PageProps {
   params: {menuItem: string}; // 동적 경로의 세그먼트
@@ -12,6 +14,12 @@ export default function AboutPage({params}: PageProps) {
   switch (menuItem) {
     case 'one':
       PageComponent = One;
+      break;
+    case 'two':
+      PageComponent = Two;
+      break;
+    case 'three':
+      PageComponent = Three;
       break;
     default:
       PageComponent = () => <div>없는데..</div>;
